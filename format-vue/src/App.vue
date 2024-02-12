@@ -20,6 +20,10 @@ export default{
     methods: {
         getCards(){
 
+            if( store.selectValue != '' ){
+                store.apiUrl =+ `?archetype=${store.selectValue}`
+            }
+
             axios.get( store.apiUrl )
             .then( res => {
                 console.log(res.data)
@@ -27,10 +31,21 @@ export default{
                 store.cardList = res.data.data
 
             } )
+        },
+
+        getArchetype() {
+            axios.get( store.selectUrl )
+            .then( res => {
+                console.log(res.data)
+
+                store.archetypesList = res.data
+
+            } )
         }
     },
     mounted() {
         this.getCards()
+        this.getArchetype()
     }
 }
 </script>
@@ -38,7 +53,7 @@ export default{
 <template>
     <HeaderBar/>
     <main>
-        <AppSearch/>
+        <AppSearch @ricerca='getCards'/>
         <CardList/>
     </main>
 </template>
