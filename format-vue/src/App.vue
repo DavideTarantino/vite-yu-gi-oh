@@ -20,8 +20,8 @@ export default{
     methods: {
         getCards(){
 
-            if( store.selectValue != '' ){
-                store.apiUrl =+ `?archetype=${store.selectValue}`
+            if( store.selectValue){
+                store.apiUrl += `&archetype=${store.selectValue}`
             }
 
             axios.get( store.apiUrl )
@@ -53,7 +53,7 @@ export default{
 <template>
     <HeaderBar/>
     <main>
-        <AppSearch @ricerca='getCards'/>
+        <AppSearch @ricerca="getCards"/>
         <CardList/>
     </main>
 </template>
@@ -61,7 +61,7 @@ export default{
 <style lang="scss">
  @use './styles/main.scss';
 
- main{
+ body{
     background-color: #D48F38; 
  }
 </style>

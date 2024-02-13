@@ -17,6 +17,7 @@
     div{
         border-bottom: 1px solid black;
         padding: 1%;
+        background-color: white;
 
         h1{
             margin-left: 8%;

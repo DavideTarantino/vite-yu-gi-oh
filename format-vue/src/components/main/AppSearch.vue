@@ -17,6 +17,7 @@
         name=""
         id=""
         v-model="store.selectValue"
+        @change="$emit('ricerca')" 
         >
             <option
             :value="element.archetype_name"
@@ -24,10 +25,7 @@
             :key="index"
             >
             {{ element.archetype_name }}</option>
-        </select>
-        <button
-            @click.prevent="$emit('ricerca')"
-        >Cerca</button>
+        </select> 
     </div>
 </template>
 

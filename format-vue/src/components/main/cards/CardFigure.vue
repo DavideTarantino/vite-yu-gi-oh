@@ -15,7 +15,7 @@
         <figure>
             <div>
                 <img :src="propsElement.card_images[0].image_url" alt="card image">
-                <h3 id="card-name">{{ propsElement.name }}</h3>
+                <h3 id="card-name">{{ propsElement.name}}</h3>
                 <p>{{ propsElement.archetype }}</p>
             </div>
         </figure>
